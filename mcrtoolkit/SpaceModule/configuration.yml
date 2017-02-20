@@ -1,0 +1,25 @@
+# #                !!!ATTENTION!!!                #
+# #   IF YOU CHANGE THE SALT, YOU MUST RESTART    #
+# #  THE WRAPPER FOR THE CHANGES TO TAKE EFFECT   #
+
+General:
+  salt: BE0344D48B234E3FB36A2D13698B2A58
+  worldContainer: .
+  bindIp: 0.0.0.0
+  backupDirectory: Backups
+  backupLogs: true
+SpaceBukkit:
+  port: 2011
+  maxJoins: 199
+  maxMessages: 199
+  maxQuits: 199
+  pingPort: 2014
+  recommended: false
+SpaceRTK:
+  port: 2012
+  pingPort: 2013
+SpaceModule:
+  type: Bukkit
+  recommended: true
+  development: false
+  artifact: <automatic>

@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# Start the services
+service apache2 start
+service mysql start
+#service php-fpm start
+
+if [ ! -f /firstrun.txt ]
+then
+    touch /firstrun.txt
+    useradd -u $UID MC
+    echo "$USER" >> /USER.txt
+    echo "$PASS" >> /PASS.txt
+
+    mysql -u root -e "create database spacebukkit";
+fi
+
+if [ ! -f /data/minecraft_server.jar ]
+then
+    sudo -u MC curl "http://repo.gliewe.net/artifactory/libs-snapshot-local/org/spigotmc/spigot/1.11.2-R0.1-SNAPSHOT/spigot-1.11.2-R0.1-20170220.181949-1.jar" -o /data/minecraft_server.jar
+fi
+
+if [ ! -f /data/rtoolkit.sh ]
+then
+    sudo -u MC cp -rn /mcrtoolkit/* /data
+    chmod +x /data/rtoolkit.sh
+fi
+
+cd /data/
+sudo -u MC ./rtoolkit.sh
