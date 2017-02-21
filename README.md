@@ -10,7 +10,7 @@ docker run --detach \
     --name spacebukkit \
     --restart always \
     --volume /<Your-volume>:/data \
-    killergoldfisch/spacebukkit-docker
+    killergoldfisch/spacebukkit
 ```
 ### MySQL Settings
 
